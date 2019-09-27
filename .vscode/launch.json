@@ -1,0 +1,94 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "attach",
+      "name": "Attach starter by Process ID",
+      "processId": "${command:PickProcess}",
+      "protocol": "inspector",
+      "address": "localhost",
+      "port": 3000,
+      "restart": true,
+      "sourceMaps": true,
+      "outFiles": ["${workspaceRoot}/dist/**/*.js"]
+    },
+    {
+      "name": "Debug end to end tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": [
+        "--runInBand",
+        "--no-cache",
+        "--config",
+        "./test/e2e/jest-e2e.config.js"
+      ],
+      "preLaunchTask": "build",
+      "runtimeArgs": ["--inspect-brk"],
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+    {
+      "name": "Debug unit tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": [
+        "--runInBand",
+        "--no-cache",
+        "--config",
+        "./test/unit/jest.config.js"
+      ],
+      "preLaunchTask": "build",
+      "runtimeArgs": ["--inspect-brk"],
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+    {
+      "name": "Debug migration tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceRoot}/node_modules/jest/bin/jest.js",
+      "args": [
+        "--runInBand",
+        "--no-cache",
+        "--config",
+        "./test/migrations/jest-migrations.config.js"
+      ],
+      "preLaunchTask": "build",
+      "runtimeArgs": ["--inspect-brk"],
+      "cwd": "${workspaceRoot}",
+      "protocol": "inspector",
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch start:debug via npm",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run-script", "start:debug"],
+      "outFiles": ["${workspaceRoot}/dist/**/*.js"],
+      "port": 9229,
+      "timeout": 10000
+    }
+  ]
+}

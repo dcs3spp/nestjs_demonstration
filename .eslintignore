@@ -1,0 +1,10 @@
+README.md
+./.*ignore
+./**/*.config.js
+./**/*.d.ts
+../**/*.env
+./**/*.json
+./.*rc
+./*.sh
+dist
+webpack
