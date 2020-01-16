@@ -10,6 +10,11 @@ const mockRepository = (): any => ({
   metadata: {
     columns: [],
     relations: [],
+    connection: {
+      options: {
+        type: 'postgres',
+      },
+    },
   },
   createQueryBuilder: jest.fn(),
   findOne: jest.fn(),

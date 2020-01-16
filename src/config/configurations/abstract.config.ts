@@ -24,7 +24,7 @@ export abstract class AbstractDbConfig
   // use joi library to prepare a validation schema for env vars
   protected static validationSchema: Joi.ObjectSchema = Joi.object({
     NODE_ENV: Joi.string()
-      .valid(['development', 'production', 'test'])
+      .valid('development', 'production', 'test')
       .default('development'),
     DB_HOST: Joi.string().required(),
     DB_NAME: Joi.string().required(),
@@ -96,10 +96,10 @@ export abstract class AbstractDbConfig
     const envConfig: EnvConfig = this.load(); // create a map of the env vars
 
     // validate
-    const { error, value: validatedConfig } = Joi.validate(
-      envConfig,
-      AbstractDbConfig.validationSchema,
-    );
+    const {
+      error,
+      value: validatedConfig,
+    } = AbstractDbConfig.validationSchema.validate(envConfig);
     if (error) {
       throw new Error(`Config validation error: ${error.message}`);
     }

@@ -126,7 +126,7 @@ describe('-- ConfigServiceFactory --', () => {
 
   test('loadDbConfigAsync should throw an error when environment variable missing', async () => {
     const expectedErrorMessage =
-      'Config validation error: child "DB_NAME" fails because ["DB_NAME" is required]';
+      'Config validation error: "DB_NAME" is required';
 
     process.env.DB_HOST = 'localhost';
     process.env.NODE_ENV = productionEnv;
@@ -139,7 +139,7 @@ describe('-- ConfigServiceFactory --', () => {
 
   test('loadDbConfigSync should throw an error when envionrment variable missing', () => {
     const expectedErrorMessage =
-      'Config validation error: child "DB_NAME" fails because ["DB_NAME" is required]';
+      'Config validation error: "DB_NAME" is required';
 
     process.env.DB_HOST = 'localhost';
     process.env.NODE_ENV = productionEnv;
@@ -151,7 +151,7 @@ describe('-- ConfigServiceFactory --', () => {
 
   test('loadAsync should throw an error when environment variable missing', async () => {
     const expectedErrorMessage =
-      'Config validation error: child "DB_NAME" fails because ["DB_NAME" is required]';
+      'Config validation error: "DB_NAME" is required';
 
     process.env.DB_HOST = 'localhost';
     process.env.NODE_ENV = productionEnv;

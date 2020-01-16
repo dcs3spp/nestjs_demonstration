@@ -1,4 +1,4 @@
-import { ApiModelProperty } from '@nestjs/swagger';
+import { ApiProperty } from '@nestjs/swagger';
 import { Column, Entity } from 'typeorm';
 import { IsDefined, IsString, IsNumber } from 'class-validator';
 import { CrudValidationGroups } from '@nestjsx/crud';
@@ -7,7 +7,7 @@ const { CREATE, UPDATE } = CrudValidationGroups;
 
 @Entity('course', { schema: 'coursemanagement' })
 export class Course {
-  @ApiModelProperty()
+  @ApiProperty()
   @IsDefined({ groups: [CREATE, UPDATE] })
   @IsNumber({}, { always: true })
   @Column('integer', {
@@ -18,7 +18,7 @@ export class Course {
   // eslint-disable-next-line camelcase
   public CourseID = 0;
 
-  @ApiModelProperty()
+  @ApiProperty()
   @IsDefined({ groups: [CREATE, UPDATE] })
   @IsString({ always: true })
   @Column('character varying', {

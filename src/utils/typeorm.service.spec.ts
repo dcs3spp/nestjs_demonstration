@@ -6,6 +6,11 @@ const repoMock = {
   metadata: {
     columns: [],
     relations: [],
+    connection: {
+      options: {
+        type: 'postgres',
+      },
+    },
   },
   save: jest.fn(),
   target: Course,
@@ -14,11 +19,13 @@ const repoMock = {
 const requestMock = {
   options: {},
   parsed: {
+    authPersist: {},
     fields: [],
     paramsFilter: [],
     filter: [],
     or: [],
     join: [],
+    search: {},
     sort: [],
     limit: 0,
     offset: 0,
@@ -96,6 +103,7 @@ describe('-- MyTypeOrmCrudService --', () => {
     const requestWithParamsFilterMock = {
       options: {},
       parsed: {
+        authPersist: {},
         fields: [],
         paramsFilter: [
           {
@@ -107,6 +115,7 @@ describe('-- MyTypeOrmCrudService --', () => {
         filter: [],
         or: [],
         join: [],
+        search: {},
         sort: [],
         limit: 0,
         offset: 0,
@@ -129,6 +138,7 @@ describe('-- MyTypeOrmCrudService --', () => {
     const requestWithParamsFilterMock = {
       options: {},
       parsed: {
+        authPersist: {},
         fields: [],
         paramsFilter: [
           {
@@ -140,6 +150,7 @@ describe('-- MyTypeOrmCrudService --', () => {
         filter: [],
         or: [],
         join: [],
+        search: {},
         sort: [],
         limit: 0,
         offset: 0,
