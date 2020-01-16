@@ -11,7 +11,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
     sourceType: 'module',
-    project: path.resolve(__dirname,'./tsconfig.json'),
+    project: path.resolve(__dirname, './tsconfig.json'),
     tsconfigRootDir: __dirname,
   },
   env: {
@@ -21,7 +21,7 @@ module.exports = {
     jest: true,
   },
   rules: {
-    // '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/indent': 'off',
@@ -31,7 +31,7 @@ module.exports = {
     'max-len': ['error', { code: 150 }],
     'member-ordering': 'off',
     'object-literal-sort-keys': 'off',
-    quotes: ['error','single'],
+    quotes: ['error', 'single'],
   },
   settings: {},
 };
