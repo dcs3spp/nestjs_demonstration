@@ -19,7 +19,6 @@ describe('AppController (e2e)', () => {
     loggingOptions: { level: 'debug', silent: silentLogging },
   };
 
-  const m: string = 'm';
   async function dispose(): Promise<void> {
     if (testModule) {
       await testModule.close();

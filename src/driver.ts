@@ -99,5 +99,4 @@ async function main(): Promise<void> {
   await driver(myConnection);
 }
 
-const m: string = 'm';
 main();
