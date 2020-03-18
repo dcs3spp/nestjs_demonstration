@@ -178,3 +178,7 @@ _editor.formatOnSave_ are set to true by default.
 ## Issues
 
 When running the tests there is a memory leak in Winston logger potentially due to issues [#1620](https://github.com/winstonjs/winston/issues/1620),[#1334](https://github.com/winstonjs/winston/issues/1334) and [#1706](https://github.com/winstonjs/winston/issues/1706).
+
+Webpack and eslint-loader uses legacy version of mkdir in minimist package. Package warnings will be received upon install until this has been resolved by the
+package maintainers, either by backport fix or through the next semantic version release. At the time of writing an issue has been posted at 
+[webpack](https://github.com/webpack/webpack/issues/10561).
