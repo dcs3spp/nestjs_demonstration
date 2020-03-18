@@ -44,9 +44,13 @@ A PostgreSQL database is used for the backend. This is configured by setting the
   user referred to in the _DB_USER_ environment variable.
 - Migrations will automatically create the schema.
 
+### Database Configuration
+
+- A dedicated *Config* module automatically and transparently creates a configuration object dependent upon the build environment. For production environments the config object is derived from environment variables within the inherent shell. For development and test environments the configuration object is derived from the development.env and test.env files respectively. In summary a *ConfigService* class exposes a [TypeOrmModuleOptions](https://github.com/nestjs/typeorm/blob/master/lib/interfaces/typeorm-options.interface.ts) instance, representing a configuration object for connecting to the database and performing migration/seed operations. Please refer to the source code for the config module within the _src/config_ folder for further details. 
+
 ### Test database
 
-- The database configured via dotenv file, _test.env_, is dropped each time the Application module is instantiated and migrations are run from _src/database/migrations_. This is achieved through typeorm options _dropSchema_ and _migrationsRun_ within the configuration file _src/config/ormconfig.ts_. This provides the opportunity for each test to use a fresh database environment. Test data is seeded when the _SeedModule_ is imported. This is only imported for development and test build environments and is initialised during the application bootstrap process.
+- The database configured via dotenv file, _test.env_, is dropped each time the Application module is instantiated and migrations are run from _src/database/migrations_. This is performed transparently to the developer and allows each test to use a fresh database environment. Test data is automatically seeded when the _SeedModule_ is imported. Seeding is only performed for development and test build environments and is initialised during the application bootstrap process.
 - An alternative mechanism would be to use transactions to rollback after each test has completed. The [typeorm-test-transations](https://github.com/entrostat/typeorm-test-transactions) library uses this approach, although it uses the _@Transactional_ decorator which is marked as deprecated in future releases of [typeorm](https://github.com/typeorm/typeorm/issues/3251#issue-390989433). Another [solution](https://github.com/nestjs/nest/issues/1843#issuecomment-518012896) could be to use typeorm _EntityManager_ / _QuerryRunner_ to manage transactions.
 
 ## Running the server for the Rest API
