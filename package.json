@@ -43,7 +43,7 @@
     "@nestjsx/crud": "^4.4.2",
     "@nestjsx/crud-typeorm": "^4.4.2",
     "class-transformer": "^0.2.3",
-    "class-validator": "^0.11.0",
+    "class-validator": "^0.14.0",
     "dotenv": "^8.1.0",
     "pg": "^7.18.2",
     "reflect-metadata": "^0.1.12",
